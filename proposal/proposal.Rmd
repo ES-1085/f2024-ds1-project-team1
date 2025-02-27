@@ -11,15 +11,17 @@ library(broom)
 
 ## 1. Introduction
 
-Our dataset comes from a database called Kaggle that provides a handful of climate datasets that are free to download. 
+In our project, we will aim to assess the evolution of natural disaster intensity, frequency, and location of the 20th century. We will generate figures that outline how climate change has accelerated these events over the last century. Our dataset comes from a database called Kaggle that provides a handful of climate datasets that are free to download. It was collected by compiling a set of historical natural disaster records to create a comprehensive history of natural disasters during the 20th century. The observations in our data set are individual natural disasters while the variables are characteristics of each disaster including Year, Disaster.Group, Country, Deaths, etc. 
 
 ## 2. Data
 
-Text goes here.
-
 ```{r importing_data}
 natural_disasters <- read.csv(file = "../data/DCS_Project.csv")
+
+view(natural_disasters)
 ```
+
+
 
 ## 3. Data analysis plan
 
