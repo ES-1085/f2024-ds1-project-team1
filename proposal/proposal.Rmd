@@ -26,11 +26,11 @@ glimpse(natur)
 
 ## 3. Data analysis plan
 
-Text goes here.
+In this project, we are looking specifically at how the severity of natural disasters has changed over the last century(1900-2000). 
 
 
-```{r}
-# Code goes here
+```{r printing-natural-diaster-dataset}
+print(natural_disasters)
 ```
 
 
