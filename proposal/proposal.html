@@ -359,13 +359,22 @@ display: none;
 library(broom)</code></pre>
 <div id="introduction" class="section level2">
 <h2>1. Introduction</h2>
-<p>Text goes here. Refer to the Markdown Quick Reference: Help -&gt;
-Markdown Quick Reference.</p>
+<p>In our project, we will aim to assess the evolution of natural
+disaster intensity, frequency, and location of the 20th century. We will
+generate figures that outline how climate change has accelerated these
+events over the last century. Our dataset comes from a database called
+Kaggle that provides a handful of climate datasets that are free to
+download. It was collected by compiling a set of historical natural
+disaster records to create a comprehensive history of natural disasters
+during the 20th century. The observations in our data set are individual
+natural disasters while the variables are characteristics of each
+disaster including Year, Disaster.Group, Country, Deaths, etc.</p>
 </div>
 <div id="data" class="section level2">
 <h2>2. Data</h2>
-<p>Text goes here.</p>
-<pre class="r"><code># Code goes here</code></pre>
+<pre class="r"><code>natural_disasters &lt;- read.csv(file = &quot;../data/DCS_Project.csv&quot;)
+
+view(natural_disasters)</code></pre>
 </div>
 <div id="data-analysis-plan" class="section level2">
 <h2>3. Data analysis plan</h2>
