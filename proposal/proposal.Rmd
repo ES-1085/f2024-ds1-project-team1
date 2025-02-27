@@ -1,10 +1,11 @@
 ---
 title: "Project proposal"
-author: "Team name"
+author: "Team 1"
 output: html_document
 ---
 
 ```{r load-packages, message = FALSE}
+install.packages("tidyverse")
 library(tidyverse)
 library(broom)
 ```
