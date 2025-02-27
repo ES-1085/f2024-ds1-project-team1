@@ -11,7 +11,7 @@ library(broom)
 
 ## 1. Introduction
 
- 
+Our dataset comes from a database called Kaggle that provides a handful of climate datasets that are free to download. 
 
 ## 2. Data
 
