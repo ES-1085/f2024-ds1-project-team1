@@ -11,14 +11,14 @@ library(broom)
 
 ## 1. Introduction
 
-Text goes here. Refer to the Markdown Quick Reference: Help -> Markdown Quick Reference. 
+ 
 
 ## 2. Data
 
 Text goes here.
 
-```{r}
-# Code goes here
+```{r importing_data}
+natural_disasters <- read.csv(file = "../data/DCS_Project.csv")
 ```
 
 ## 3. Data analysis plan
