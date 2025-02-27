@@ -1,6 +1,6 @@
 ---
 title: "Project proposal"
-author: "Team name"
+author: "Sully, Adi, and Max "
 output: html_document
 ---
 
