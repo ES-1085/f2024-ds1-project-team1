@@ -7,6 +7,7 @@ output: html_document
 ```{r load-packages, message = FALSE}
 library(tidyverse)
 library(broom)
+library(ggplot2)
 ```
 
 ## 1. Introduction
@@ -19,20 +20,38 @@ In our project, we will aim to assess the evolution of natural disaster intensit
 natural_disasters <- read.csv(file = "../data/DCS_Project.csv")
 
 view(natural_disasters)
-glimpse(natural_disasters)
 ```
 
 
 
 ## 3. Data analysis plan
 
-In this project, we are looking specifically at how the severity of natural disasters has changed over the last century(1900-2000). 
+1.    In this project, we are looking specifically at how the severity of natural disasters has changed over the last century (1900-2000). Some of the variables that will be of interest to us are disaster subgroup, type, and subtype to categorize the disaster, while variables like region, year, and deaths will give us characteristics of the disaster. 
 
+2.    We don't anticipate that any extra data will be necessary as there are enough columns in our dataset to create engaging figures.
+
+3.    Below are a handful of figures that will be helpful in our first assessment of the data
 
 ```{r printing-natural-diaster-dataset}
 print(natural_disasters)
 ```
 
+Printing the data allows us to visualize the dataset in table form
+
+```{r density_visualizations}
+ggplot(natural_disasters, mapping = aes(x = Year, fill = Disaster.Subgroup, alpha = 0.5)) +
+  geom_density()
+```
+Density plots can help us examine our dataset over the last century, as this is all data that has been collected since 1900. The plot above shows how the frequency of natural disasters has skyrocketed since the middle of the 20th century. 
+
+```{r visualizations}
+ggplot(natural_disasters, mapping = aes(x = Total.Deaths, y = Total.Damages...000.US.., colour = Continent)) +
+  geom_point() +
+   xlim(min_value = 0, max_value = 500)+
+   ylim(min_value = 0, max_value = 2.5e+07)
+```
+
+In the scatterplot above, we've plotted total deaths against total damages. This gives us a sense of what sort of relationship there is between fatalities and damages in these disasters. Additionally, we've added the continent variable as the color of the point on the scatterplot. This shows us that most of the disasters with the highest fatalities are in Africa or Asia while most of the American naturals disasters stay below 50 fatalities. 
 
 ## 4. Data Ethics Review
 
