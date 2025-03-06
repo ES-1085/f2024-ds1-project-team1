@@ -20,25 +20,22 @@ using the following format.
 - `Region`:  a part of a larger geographical region or continent
 - `Continent`: Continent of where the natural disaster occurred 
 - `Location`: Exact location of where the natural disaster occurred 
-- `Origin`: Description of variable 3
-- `Associated.Dis`: Description of variable 3
-- `OFDA.Response`: Description of variable 3
-- `Appeal`: Description of variable 3
-- `Declaration`: Description of variable 3
-- `Aid.Contribution`: Description of variable 3
-- `Dis.Mag.Value`: Description of variable 3
-- `Dis.Mag.Scale`: Description of variable 3
-- `Local.Time`: Description of variable 3
-- `Start.Year`: Description of variable 3
-- `Start.Month`: Description of variable 3
-- `Start.Day`: Description of variable 3
-- `End.Year`: Description of variable 3
-- `End.Month`: Description of variable 3
+- `Origin`: Origin of where the disaster occured 
+- `Associated.Dis`: associated disasters 
+- `OFDA.Response`: office of foreign disasters response (yes/no)
+- `Dis.Mag.Value`: Disaster magnitude value 
+- `Dis.Mag.Scale`: the scale of the disaster magnitude value 
+- `Local.Time`: local time when the disaster occured 
+- `Start.Year`: starting year of the disaster 
+- `Start.Month`: start month of the disaster 
+- `Start.Day`: start day of the disaster 
+- `End.Year`: end year of the disaster 
+- `End.Month`: end month of the disaster 
 - `End.Day`: Description of variable 3
-- `No.Injured`: Description of variable 3
-- `No.Affected`: Description of variable 3
-- `No.Homeless`: Description of variable 3
-- `Total.Affected`: Description of variable 3
+- `No.Injured`: number injured by the disaster 
+- `No.Affected`: number affected by the disaster 
+- `No.Homeless`: number of people turned homeless by the disaster 
+- `Total.Affected`: total number of people affected by the natural disaster 
 
 
 
