@@ -12,7 +12,7 @@ library(ggplot2)
 
 ## 1. Introduction
 
-In our project, we will aim to assess the evolution of natural disaster intensity, frequency, and location of the 20th century. We will generate figures that outline how climate change has accelerated these events over the last century. Our dataset comes from a database called Kaggle that provides a handful of climate datasets that are free to download. It was collected by compiling a set of historical natural disaster records to create a comprehensive history of natural disasters during the 20th century. The observations in our data set are individual natural disasters while the variables are characteristics of each disaster including Year, Disaster.Group, Country, Deaths, etc. 
+In our project, we will aim to assess the evolution of natural disaster intensity, frequency, and location of the 20th century. We will generate figures that outline how climate change has accelerated these events over the last century. Our dataset comes from a database called Kaggle that provides a handful of climate datasets that are free to download. It was collected by compiling a set of historical natural disaster records to create a comprehensive history of natural disasters during the 20th century. The observations in our data set are individual natural disasters while the variables are characteristics of each disaster including Year, Disaster.Group, Country, Deaths, etc. Our research question is: In what ways have natural disasters intensified over the last century?
 
 ## 2. Data
 
@@ -26,17 +26,18 @@ view(natural_disasters)
 
 ## 3. Data analysis plan
 
-1.    In this project, we are looking specifically at how the severity of natural disasters has changed over the last century (1900-2000). Some of the variables that will be of interest to us are disaster subgroup, type, and subtype to categorize the disaster, while variables like region, year, and deaths will give us characteristics of the disaster. 
+1.    In this project, we are looking specifically at how the severity of natural disasters has changed over the last century (1900-2000). Some of the variables that will be of interest to us are disaster subgroup, type, and subtype to categorize the disaster, while variables like region, year, and deaths will give us characteristics of the disaster. We plan to use mostly bar plots and scatterplots to visualize the dataset. Most of our variables are catagorical, so density plots with specific fill variables may be useful as well.  
 
 2.    We don't anticipate that any extra data will be necessary as there are enough columns in our dataset to create engaging figures.
 
 3.    Below are a handful of figures that will be helpful in our first assessment of the data
 
-```{r printing-natural-diaster-dataset}
-print(natural_disasters)
+```{r summary_statistics}
+summary(natural_disasters)
+str(natural_disasters)
 ```
 
-Printing the data allows us to visualize the dataset in table form
+Summarizing the data allows us to visualize the dataset quickly.
 
 ```{r density_visualizations}
 ggplot(natural_disasters, mapping = aes(x = Year, fill = Disaster.Subgroup, alpha = 0.5)) +
@@ -44,7 +45,7 @@ ggplot(natural_disasters, mapping = aes(x = Year, fill = Disaster.Subgroup, alph
 ```
 Density plots can help us examine our dataset over the last century, as this is all data that has been collected since 1900. The plot above shows how the frequency of natural disasters has skyrocketed since the middle of the 20th century. 
 
-```{r visualizations}
+```{r initial_visualizations}
 ggplot(natural_disasters, mapping = aes(x = Total.Deaths, y = Total.Damages...000.US.., colour = Continent)) +
   geom_point() +
    xlim(min_value = 0, max_value = 500)+
