@@ -8,6 +8,9 @@ output: html_document
 library(tidyverse)
 library(broom)
 library(ggplot2)
+library(leaflet)
+library(sf)
+library(leafsync)
 ```
 
 ## 1. Introduction
@@ -17,13 +20,9 @@ In our project, we will aim to assess the evolution of natural disaster intensit
 ## 2. Data
 
 ```{r importing_data}
-<<<<<<< HEAD
-natural_disasters <- read.csv(file = "../data/DCS_Progliject.csv")
-=======
 natural_disasters <- read.csv(file = "../data/DCS_Project.csv")
 
 view(natural_disasters)
->>>>>>> 8f57f9f51550bf2529404d0c6a9f718a85cd34ab
 ```
 
 
@@ -50,11 +49,20 @@ ggplot(natural_disasters, mapping = aes(x = Year, fill = Disaster.Subgroup, alph
 Density plots can help us examine our dataset over the last century, as this is all data that has been collected since 1900. The plot above shows how the frequency of natural disasters has skyrocketed since the middle of the 20th century. 
 
 ```{r initial_visualizations}
-ggplot(natural_disasters, mapping = aes(x = Total.Deaths, y = Total.Damages...000.US.., colour = Continent)) +
+ggplot(natural_disasters, mapping = aes(x = Total.Deaths, y = Total.Damages...000.US.., colour = Continent, size = Total.Deaths, alpha = 0.5)) +
   geom_point() +
    xlim(min_value = 0, max_value = 500)+
    ylim(min_value = 0, max_value = 2.5e+07)
 ```
+
+```{r}
+leaflet(natural_disasters) %>% 
+  lon <- "Longitude" %>%
+  lat <- "Latitude" %>%
+      addProviderTiles(providers$OpenStreetMap) %>%
+      addCircleMarkers(~lon, ~lat, clusterOptions = markerClusterOptions())
+```
+
 
 In the scatterplot above, we've plotted total deaths against total damages. This gives us a sense of what sort of relationship there is between fatalities and damages in these disasters. Additionally, we've added the continent variable as the color of the point on the scatterplot. This shows us that most of the disasters with the highest fatalities are in Africa or Asia while most of the American naturals disasters stay below 50 fatalities. 
 
