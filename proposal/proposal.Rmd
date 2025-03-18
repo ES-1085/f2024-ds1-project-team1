@@ -22,13 +22,9 @@ In our project, we will aim to assess the evolution of natural disaster intensit
 ```{r importing_data}
 natural_disasters <- read.csv(file = "../data/DCS_Project.csv")
 
-<<<<<<< HEAD
-view(natural_disasters)
-=======
-natural_disasters <- read.csv(file = "../data/DCS_Project.csv")
 
 glimpse(natural_disasters)
->>>>>>> 65da48000fa38c6579b8c78cbb8a6a8e3eab2e24
+
 ```
 
 
@@ -62,11 +58,21 @@ ggplot(natural_disasters, mapping = aes(x = Total.Deaths, y = Total.Damages...00
 ```
 
 ```{r}
+
+## check out https://rstudio.github.io/leaflet/articles/showhide.html
+
+natural_disasters <- natural_disasters |>
+  mutate(Latitude = as.numeric(str_extract(Latitude, pattern = "\\d+.\\d+")),
+         Longitude = as.numeric(str_extract(Longitude, pattern = "\\d+.\\d+"))) 
+glimpse(natural_disasters)
+
+ggplot(natural_disasters) +
+  geom_point(aes(x = Longitude, y = Latitude))
+
 leaflet(natural_disasters) %>% 
-  lon <- "Longitude" %>%
-  lat <- "Latitude" %>%
       addProviderTiles(providers$OpenStreetMap) %>%
-      addCircleMarkers(~lon, ~lat, clusterOptions = markerClusterOptions())
+  setView(lng = 0, lat = 0, zoom = 5) %>%
+      addCircleMarkers(lng = ~Longitude, lat = ~Latitude, label = ~`Disaster.Type`)#, clusterOptions = markerClusterOptions())
 ```
 
 
