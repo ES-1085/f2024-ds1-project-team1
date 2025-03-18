@@ -17,13 +17,11 @@ In our project, we will aim to assess the evolution of natural disaster intensit
 ## 2. Data
 
 ```{r importing_data}
-<<<<<<< HEAD
 natural_disasters <- read.csv(file = "../data/DCS_Progliject.csv")
-=======
+
 natural_disasters <- read.csv(file = "../data/DCS_Project.csv")
 
 view(natural_disasters)
->>>>>>> 8f57f9f51550bf2529404d0c6a9f718a85cd34ab
 ```
 
 
@@ -60,5 +58,14 @@ In the scatterplot above, we've plotted total deaths against total damages. This
 
 ## 4. Data Ethics Review
 
-The data ethics review section will be introduced in a separate class and is not part of the original proposal deadline.
+Limitations in Data Sources:
+
+Our data comes from an open source website called Kaggle that provides datasets for download. Since our dataset is advertised as being a comprehensive log of all natural disasters from 1900-2021, there are plenty of opportunities for our data to exclude disasters or inaccurately record certain metrics. Additionally, much of the data was collected in a time when the technology we use to monitor these disasters wasn't quite what it is these days. This means that it is important to consider the difference in cost of damages, 
+
+Positive Effects on People:
+
+Negative Effects on People:
+
+Minimising Negative Impact:
+
 
