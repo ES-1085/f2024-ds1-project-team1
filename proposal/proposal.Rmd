@@ -19,7 +19,9 @@ In our project, we will aim to assess the evolution of natural disaster intensit
 ```{r importing_data}
 natural_disasters <- read.csv(file = "../data/DCS_Project.csv")
 
-view(natural_disasters)
+natural_disasters <- read.csv(file = "../data/DCS_Project.csv")
+
+glimpse(natural_disasters)
 ```
 
 
