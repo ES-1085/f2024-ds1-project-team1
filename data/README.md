@@ -8,7 +8,7 @@ using the following format.
 ## natural_disasters
 
 - `Year`: Year of the disaster 
-- `Seq`: Description of variable 2
+- `Seq`: numbered disaster worldwide starting in 1907
 - `Disaster.Group`: Group of the natural disaster (all are "natural")
 - `Disaster.Subgroup`: A specific category within a broader classification of natural disasters. Further defining the type of hazard causing the disaster based on its origin or mechanism
 - `Disaster.Type`: Type of disaster (drought, earthquake, volcanic activity, etc.)
