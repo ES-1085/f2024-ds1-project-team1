@@ -45,6 +45,58 @@ Summarizing the data allows us to visualize the dataset quickly.
 ggplot(natural_disasters, mapping = aes(x = Year, fill = Disaster.Subgroup, alpha = 0.5)) +
   geom_density()
 ```
+```{r visualizations_for_plot_critique}
+filtered_data <- natural_disasters %>%
+  filter(Year >= 1950 & Year <= 2025)
+
+ggplot(filtered_data, mapping = aes(x = Year, fill = Disaster.Subgroup, alpha = 0.2, )) +
+  geom_density()
+```
+```{r visualizations_for_plot_critique_2}
+
+disaster_counts <- natural_disasters %>%
+  count(Year, Disaster.Subgroup) %>%
+  filter(Disaster.Subgroup != "Extra-terrestrial", Year >= 1940 & Year <= 2025)
+
+pdf("Natural Disaster Heatmap.pdf")
+ggplot(disaster_counts, aes(x = Year, y = Disaster.Subgroup, fill = n)) +
+  geom_tile() +
+  scale_fill_viridis_c() +
+  labs(title = "Heatmap of Disasters by Subgroup and Year", x = "Year", y = "Disaster Subgroup") +
+  theme_minimal()
+
+dev.off()
+```
+```{r visualizations_for_plot_critique_3}
+pdf("my_plot.pdf", width = 8, height = 6)
+ggplot(natural_disasters, aes(x = Year)) +
+  geom_histogram(binwidth = 5, fill = "skyblue", color = "black") +
+  facet_wrap(~ Disaster.Subgroup) +
+  labs(title = "Disaster Years by Subgroup", x = "Year", y = "Count") +
+  theme_minimal()
+pdf()
+```
+
+```{r visualizations_for_plot_critique_4}
+ggplot(natural_disasters, aes(x = Disaster.Subgroup)) +
+  geom_bar(fill = "skyblue", color = "black") +
+  labs(title = "Count of Disasters per Subgroup", x = "Disaster Subgroup", y = "Count") +
+  theme_minimal()
+```
+```{r visualizations_for_plot_critique_5}
+death_by_subgroup <- natural_disasters %>%
+  group_by(Disaster.Subgroup) %>%
+  summarise(Total.Deaths = sum(Total.Deaths, na.rm = TRUE))
+
+# Create bar plot
+ggplot(death_by_subgroup, aes(x = reorder(Disaster.Subgroup, Total.Deaths), y = Total.Deaths)) +
+  geom_bar(stat = "identity", fill = "skyblue", color = "black") +
+  labs(title = "Total Deaths by Disaster Subgroup", x = "Disaster Subgroup", y = "Total Deaths") +
+  coord_flip() + # Flips the axis for better readability
+  theme_minimal()
+```
+
+
 Density plots can help us examine our dataset over the last century, as this is all data that has been collected since 1900. The plot above shows how the frequency of natural disasters has skyrocketed since the middle of the 20th century. 
 
 ```{r initial_visualizations}
